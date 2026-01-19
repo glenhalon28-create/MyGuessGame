@@ -62,7 +62,7 @@ def play_level(level_cfg):
     return False, 0
 
 def main():
-    print("欢迎来到猜数字：关卡模式")
+    print("欢迎来到我的第一个猜数字游戏：关卡模式")
     leaderboard = load_leaderboard()
     
     while True:
