@@ -47,13 +47,7 @@ def play_level(level_cfg):
     
     for attempt in range(1, level_cfg["max_attempts"] + 1):
         try:
-            user_input = input(f"第 {attempt} 次：请输入你的猜测：")
-            # 彩蛋逻辑：如果输入是'周星驰'，直接通关
-            if user_input == '周星驰':
-                print('星爷降临，本关自动通关！')
-                level_score = 100  # 返回满分
-                return True, level_score
-            guess = int(user_input)
+            guess = int(input(f"第 {attempt} 次：请输入你的猜测："))
             if guess == target:
                 level_score = calculate_score(attempt, level_cfg['max_attempts'])
                 print(f"正确！本关得分：{level_score}")
