@@ -47,7 +47,16 @@ def play_level(level_cfg):
     
     for attempt in range(1, level_cfg["max_attempts"] + 1):
         try:
-            guess = int(input(f"第 {attempt} 次：请输入你的猜测："))
+            user_input = input(f"第 {attempt} 次：请输入你的猜测：")
+            # 检查是否是"周星驰"彩蛋
+            if user_input == "周星驰":
+                print("做人如果没有梦想，跟咸鱼有什么区别？")
+                print("恭喜你！自动猜中！")
+                level_score = calculate_score(attempt, level_cfg['max_attempts'])
+                print(f"正确！本关得分：{level_score}")
+                return True, level_score
+            
+            guess = int(user_input)
             if guess == target:
                 level_score = calculate_score(attempt, level_cfg['max_attempts'])
                 print(f"正确！本关得分：{level_score}")
